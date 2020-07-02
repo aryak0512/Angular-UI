@@ -1,0 +1,67 @@
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+
+    <div class="col-lg-6">
+      
+      <br>
+      <div class="card border-success mb-3">
+        <div class="card-header">Hello Guest! Please login to use the portal</div>
+        <div class="card-body">
+          <h4 class="card-title"><B>CUSTOMER LOGIN</B></h4>
+          <div class="form-group">
+
+            <form (submit)="validateUser(userLogin)" #userLogin="ngForm">
+               <input type="text" name="username" class="form-control" placeholder="username" 
+               id="inputDefault" #username="ngModel" minlength="3" maxlength="15"  ngModel required>
+               <br>
+               <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                              <div *ngIf="username.errors.pattern">
+                                Incorrect pattern found.
+                              </div>
+                              <div *ngIf="username.errors.required">
+                                Username is required.
+                              </div>
+                              <div *ngIf="username.errors.minlength">
+                                Username must be 5 to 15 characters long.
+                              </div>              
+               </div>
+            
+               <input type="password" name="password" class="form-control" placeholder="password" 
+               #password="ngModel" minlength="8" maxlength="15" id="inputDefault" ngModel required>
+               <br>
+               <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                   
+                    <div *ngIf="password.errors.required">
+                      Password is required.
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                      Password must be at least 8 to 15 characters long.
+                    </div>              
+              </div>
+               <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!userLogin.valid">LOGIN</button><br>
+            </form>
+            <b>Here for the first time? Register yourself  <a routerLink="/email-input">
+              <FONT color="red">CLICK HERE</FONT></a></b>
+          </div>
+        </div>
+      </div>
+  </div>   
+ 
+
+
+
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          ACCOUNT CREATION PROGRESS<BR>
+          <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <BR><BR>
+            <form (submit)="checkCarNumber(carnumberInput)" #carnumberInput="ngForm">
+                ENTER CAR NUMBER:
+                                <input type="text" name="carnumber" class="form-control" placeholder="carnumber" 
+                                id="inputDefault" #carnumber="ngModel" minlength="9" minlength="10" pattern="^[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{3,4}$" ngModel required>
+                                <br>
+                                <div *ngIf="carnumber.invalid && (carnumber.dirty || carnumber.touched)" class="alert alert-danger">
+                                               <div *ngIf="carnumber.errors.pattern">
+                                                 Please provide a valid Registeration number.
+                                               </div>
+                                               <div *ngIf="carnumber.errors.required">
+                                                 Registeration number is required.
+                                               </div>
+                                               <div *ngIf="carnumber.errors.minlength">
+                                                 Number must be 9 or 10 characters long.
+                                               </div>              
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!carnumberInput.valid">REGISTER</button><br>
+                
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+

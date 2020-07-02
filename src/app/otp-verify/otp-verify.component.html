@@ -1,0 +1,51 @@
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+
+    <div class="col-lg-6">
+      ACCOUNT CREATION PROGRESS<BR>
+        <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <BR><BR>
+      <div class="card border-success mb-3">
+        <div class="card-body">
+          <h4 class="card-title"><B>ENTER ONE TIME PASSWORD</B></h4>
+          <div class="form-group">
+
+            <form (submit)="verifyOtp(userLogin)" #userLogin="ngForm">
+              We sent an OTP to this email. 
+               <input type="password" name="password" class="form-control" placeholder="Please enter the OTP" 
+               #password="ngModel"  id="inputDefault" ngModel required>
+               <br>
+               <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                   
+                    <div *ngIf="password.errors.required">
+                      OTP is required.
+                    </div>
+                               
+              </div>
+               <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!userLogin.valid">VERIFY OTP</button><br>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>   
+ 
+
+
+
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

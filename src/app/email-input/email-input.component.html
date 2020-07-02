@@ -1,0 +1,48 @@
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          ACCOUNT CREATION PROGRESS<BR>
+          <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <BR><BR>
+            <form (submit)="checkEmail(emailInput)" #emailInput="ngForm">
+                VALID EMAIL:
+                                <input type="email" name="email" class="form-control" placeholder="email" 
+                                id="inputDefault" #email="ngModel" minlength="12" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" ngModel required>
+                                <br>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                                               <div *ngIf="email.errors.pattern">
+                                                 Please provide a valid email.
+                                               </div>
+                                               <div *ngIf="email.errors.required">
+                                                 Email is required.
+                                               </div>
+                                               <div *ngIf="email.errors.minlength">
+                                                 Email must be at least 12 characters long.
+                                               </div>              
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!emailInput.valid">REGISTER</button><br>
+                
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

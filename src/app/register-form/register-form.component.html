@@ -1,0 +1,108 @@
+
+<div class="container-fluid">
+<br>
+    <div class="row">  
+        <div class="col-lg-3">
+       
+        </div> 
+      <div class="col-lg-6">
+        <div class="card border-danger mb-3">
+            <div class="card-header">Hello Guest! Please register yourself to use the portal</div>
+            <div class="card-body">
+              <h4 class="card-title"><B>CUSTOMER REGISTRATION</B></h4>
+              <form (submit)="registerUser(userRegister)" #userRegister="ngForm">
+
+                FULL NAME:
+                <input type="text" name="name" class="form-control" placeholder="Your full name" 
+                id="inputDefault" #name="ngModel" minlength="3" pattern="[A-Za-z ]{1,32}" ngModel required>
+                <br>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                               <div *ngIf="name.errors.pattern">
+                                 Only aplhabets from a-z or A-Z allowed.
+                               </div>
+                               <div *ngIf="name.errors.required">
+                                 Name is required.
+                               </div>
+                               <div *ngIf="name.errors.minlength">
+                                 Name must be 3 to 32 characters long.
+                               </div>              
+                </div>
+
+
+
+                CONTACT:
+                <input type="text" name="contact" class="form-control" placeholder="Your mobile number" 
+                id="inputDefault" #contact="ngModel" minlength="10" maxlength="10" pattern="[0-9]{10}" ngModel required>
+                <br>
+                <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="alert alert-danger">
+                               <div *ngIf="contact.errors.pattern">
+                                characters 0-9 allowed.
+                               </div>
+                               <div *ngIf="contact.errors.required">
+                                contact is required.
+                               </div>
+                               <div *ngIf="contact.errors.minlength">
+                                contact must 10 characters long.
+                               </div>              
+                </div>
+
+                VALID EMAIL:
+                &nbsp;&nbsp;{{email}}
+                <br><br>
+                
+                
+                USERNAME:
+                <input type="text" name="username" class="form-control" placeholder="username" 
+                id="inputDefault" #username="ngModel" pattern="^(?=[a-zA-Z0-9._]{5,15}$)(?!.*[_.]{2})[^_.].*[^_.]$" ngModel required>
+                <br>
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                               <div *ngIf="username.errors.pattern">
+                                CRETERIA FOR USERNAME:<br>
+                                1. Only contains alphanumeric characters, underscore and dot.<br>
+    2. Underscore and dot can't be at the end or start of a username (e.g _username / username_ / .username / username.)<br>
+    3. Underscore and dot can't be next to each other (e.g user_.name).<br>
+    4. Underscore or dot can't be used multiple times in a row (e.g user__name / user..name)<br>
+    5. Username must be 5 to 15 characters long.
+                               </div>
+                               <div *ngIf="username.errors.required">
+                                Username is required.
+                               </div>
+                                           
+                </div>
+
+                PASSWORD:
+                <input type="password" name="password" class="form-control" placeholder="password" 
+                #password="ngModel" minlength="8" maxlength="15" id="inputDefault" ngModel required>
+                <br>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    
+                     <div *ngIf="password.errors.required">
+                       Password is required.
+                     </div>
+                     <div *ngIf="password.errors.minlength">
+                       Password must be at least 8 to 15 characters long.
+                     </div>              
+               </div>
+
+
+
+                <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!userRegister.valid">REGISTER</button><br>
+             
+             
+              </form>
+            </div>
+        </div>
+      </div> 
+      
+      
+      <div class="col-lg-3">
+       
+      </div>   
+    </div>
+
+
+
+
+
+    
+</div>
