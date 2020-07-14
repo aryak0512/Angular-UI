@@ -1,0 +1,22 @@
+<h2><b>YOUR VEHICLES:</b></h2>
+  <div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Reg. no</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let v of vehicles">
+            <tr>
+                <td>{{v.model}}</td>
+                <td>{{v.registeration_no}}</td>
+                <td id="remove-button"><button type="button" class="btn btn-success">REMOVE</button>
+                </td>
+            </tr>
+        </tbody>
+      </table> 
+    <b>TOTAL VEHICLES: </b>{{vehicles.length}}
+    <br>  </div>
+  <br>

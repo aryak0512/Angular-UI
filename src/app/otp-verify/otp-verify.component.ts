@@ -16,24 +16,18 @@ export class OtpVerifyComponent implements OnInit {
   verifyOtp(userLogin:NgForm){
      let otpEntered=userLogin.value.password;
      //post api for verification and result in sucess variable
-     /*
+    
      this.customerService.sendOtpEntered(otpEntered)
      .subscribe(resp => {
-      let success:Number=resp.body;
-      if(success!=0){
-        this.router.navigate(['register']);
+      let success:Boolean=resp.body;
+      if(success!=false){
+        this.router.navigate(['phone-number']);
       }
       else{
         alert("OTP ENTERED IS INCORRECT.");
       }
    });
-   */
-      if (otpEntered=="1234"){
-        this.router.navigate(['register']);
-      }
-      else{
-        alert("OTP ENTERED IS INCORRECT.");
-      }
+   
     
   }
 

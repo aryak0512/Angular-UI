@@ -18,24 +18,19 @@ export class LoginFormComponent implements OnInit {
 
   validateUser(userLogin:NgForm){
     let credentials=[]
-    //reading username and password and send them to back end for pprocessing in form of array
     let username=userLogin.value.username;
     let password=userLogin.value.password;
     credentials.push(username);
     credentials.push(password);
 
-    if(username=="aryak0512" && password=="12345678"){
-      this.router.navigate(['home']);
-    }
-    else{
-      alert("INVALID CREDENTIALS!!!");
-    }
-
-    /*
-    this.customerService.postCustomer(credentials)
+    
+    this.customerService.customerLogin(credentials)
      .subscribe(resp => {
-        let cust_id:Number=resp.body;
+        let cust_id:number=resp.body;
+        
+        this.customerService.setCustomerId(cust_id);
         if(cust_id!=0){
+          
           this.customerService.setLoginStatus();
           this.router.navigate(['home']);
         }
@@ -44,7 +39,7 @@ export class LoginFormComponent implements OnInit {
         }
      });
 
-     */
+     
   }
 
   

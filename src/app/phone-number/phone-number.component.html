@@ -75,24 +75,23 @@ body {
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <BR><BR>
-            <form (submit)="checkCarNumber(carnumberInput)" #carnumberInput="ngForm">
-                ENTER CAR NUMBER:
-                                <input type="text" name="carnumber" class="form-control" placeholder="carnumber" 
-                                id="inputDefault" #carnumber="ngModel" minlength="9" minlength="10" pattern="^[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{3,4}$" ngModel required>
-                                <br>
-                                <div *ngIf="carnumber.invalid && (carnumber.dirty || carnumber.touched)" class="alert alert-danger">
-                                               <div *ngIf="carnumber.errors.pattern">
-                                                 Please provide a valid Registeration number.
-                                               </div>
-                                               <div *ngIf="carnumber.errors.required">
-                                                 Registeration number is required.
-                                               </div>
-                                               <div *ngIf="carnumber.errors.minlength">
-                                                 Number must be 9 or 10 characters long.
-                                               </div>              
+            <form (submit)="checkContact(contactInput)" #contactInput="ngForm">
+                    CONTACT:
+                    <input type="text" name="contact" class="form-control" placeholder="Your mobile number" 
+                    id="inputDefault" #contact="ngModel" minlength="10" maxlength="10" pattern="[0-9]{10}" ngModel required>
+                    <br>
+                    <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="alert alert-danger">
+                                <div *ngIf="contact.errors.pattern">
+                                    characters 0-9 allowed.
                                 </div>
-                                <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!carnumberInput.valid">REGISTER</button><br>
-                
+                                <div *ngIf="contact.errors.required">
+                                    contact is required.
+                                </div>
+                                <div *ngIf="contact.errors.minlength">
+                                    contact must 10 characters long.
+                                </div>              
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!contactInput.valid">VERIFY PHONE NUMBER</button><br>          
             </form>
         </div>
         <div class="col-lg-3"></div>

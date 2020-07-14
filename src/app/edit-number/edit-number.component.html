@@ -1,0 +1,42 @@
+
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          ACCOUNT CREATION PROGRESS<BR>
+          <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <BR><BR>
+            <form (submit)="checkContact(contactInput)" #contactInput="ngForm">
+                    CONTACT:
+                    <input type="text" name="contact" class="form-control" placeholder="Your mobile number" 
+                    id="inputDefault" #contact="ngModel" minlength="10" maxlength="10" pattern="[0-9]{10}" ngModel required>
+                    <br>
+                    <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="alert alert-danger">
+                                <div *ngIf="contact.errors.pattern">
+                                    characters 0-9 allowed.
+                                </div>
+                                <div *ngIf="contact.errors.required">
+                                    contact is required.
+                                </div>
+                                <div *ngIf="contact.errors.minlength">
+                                    contact must 10 characters long.
+                                </div>              
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg btn-block" [disabled]="!contactInput.valid">VERIFY PHONE NUMBER</button><br>          
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+

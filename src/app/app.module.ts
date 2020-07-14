@@ -14,6 +14,13 @@ import { HomeComponent } from './home/home.component';
 import { EmailInputComponent } from './email-input/email-input.component';
 import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
 import { CarNumberComponent } from './car-number/car-number.component';
+import { CarFormComponent } from './car-form/car-form.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaypalComponent } from './paypal/paypal.component';
+import { PhoneNumberComponent } from './phone-number/phone-number.component';
+import { EditNumberComponent } from './edit-number/edit-number.component';
+import { TollPlazaComponent } from './toll-plaza/toll-plaza.component';
 
 
 @NgModule({
@@ -25,7 +32,14 @@ import { CarNumberComponent } from './car-number/car-number.component';
     HomeComponent,
     EmailInputComponent,
     OtpVerifyComponent,
-    CarNumberComponent
+    CarNumberComponent,
+    CarFormComponent,
+    VehiclesComponent,
+    PaymentComponent,
+    PaypalComponent,
+    PhoneNumberComponent,
+    EditNumberComponent,
+    TollPlazaComponent
   ],
   imports: [
     BrowserModule,

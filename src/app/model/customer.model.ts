@@ -1,12 +1,14 @@
 
 
 export class Customer{
-    customer_id:Number;
+    id:number;
     name:String;
     email:String;
-    username:String;
+    username:String="";
     password:String;
     contact:String;
+    balance:number;
+    vehicles:String[];
 
 
 }

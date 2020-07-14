@@ -11,13 +11,18 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 })
 export class RegisterFormComponent implements OnInit {
 
-  email;
+  email:String="";
+  contact:String="";
 
   constructor(public customerService:CustomerService,public router:Router,public storage: StorageMap) {
         this.storage.get('email').subscribe((email) => {
           console.log("From storage: "+email);
-          this.email=email;
+          this.email=email.toString();
+        });
 
+        this.storage.get('contact').subscribe((contact) => {
+          console.log("From storage: "+contact);
+          this.contact=contact.toString();
         });
   }
 
@@ -27,19 +32,18 @@ export class RegisterFormComponent implements OnInit {
   registerUser(userRegister:NgForm){
     
     let user_details=[]
-    let username=userRegister.value.username;
+    
     let password=userRegister.value.password;
     let name=userRegister.value.name;
     let email=this.email;
-    let address=userRegister.value.address;
-    let contact=userRegister.value.contact;
+    let contact=this.contact;
     
     user_details.push(name);
     user_details.push(email);
-    user_details.push(address);
-    user_details.push(username);
-    user_details.push(password);
     user_details.push(contact);
+
+    user_details.push(password);
+    
   
     
    this.customerService.registerCustomer(user_details)

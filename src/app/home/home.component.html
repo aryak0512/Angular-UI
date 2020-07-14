@@ -1,11 +1,152 @@
-<a href="#">Log-out</a>
-CUSTOMER PROFILE:<br>
-Name:<br>
-Email:<br>
-Username:<br>
-Current Balance:{{balance}}
-<br>
-<button class="btn btn-primary btn-lg btn-block" >ADD CAR</button><br>
-<button class="btn btn-primary btn-lg btn-block" >ADD BALANCE</button><br>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<style type="text/css">
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: black;
+  padding: 15px 10px;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 15px; 
+  line-height: 25px;
+  
+}
+
+.header a.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: red;
+  color: yellow;
+}
+
+
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+} 
+
+
+
+</style>
+  <div class="header">
+    <a href="#" ><font color="white" style="font-family: 'Fredoka One', cursive; font-size:25px; color: yellow; ">paytolleasy.COM</font></a>
+    <div class="header-right">
+      <a href="#">LOG-OUT</a>
+    </div>
+  </div>
+ 
+
+
+ <div class="container-fluid">
+    <BR>
+
+<div class="row">
+    
+    <div class="col-lg-4">
+       
+            <h2><b>YOUR VEHICLES:</b></h2>
+            <div>
+              <table class="table table-hover">
+                  <thead class="table table-dark">
+                      <tr>
+
+                          <th scope="col">Model</th>
+                          <th scope="col">Reg. no</th>
+                          <th scope="col" colspan="2">Operations</th>
+                      </tr>
+                  </thead>
+                  <tbody *ngFor="let v of customer.vehicles">
+                      <tr>
+                       
+                          <td>{{v.makerModel}}</td>
+                          <td>{{v.registrationNo}}</td>
+                          <td id="remove-button"><button type="button" class="btn btn-success" (click)="removeCar(v.id)">REMOVE</button>
+                            <td id="remove-button"><button type="button" class="btn btn-success" (click)="showCarHistory(v.id)">HISTORY</button>
+                          </td>
+                      </tr>
+                  </tbody>
+                </table> 
+              <b>TOTAL VEHICLES: </b>{{customer.vehicles.length}}
+              <br>
+              <tbody *ngFor="let v of cars">
+                      <tr>
+                          <td>{{v.id}}</td>
+                          <td>{{v.date}}</td>
+                          <td>{{v.time}}</td>
+                          <td>{{v.tollPlaza.name}}</td>
+
+                      </tr>
+                  </tbody>
+
+
+
+            </div>
+            <br>
+
+         
+   </div>
+
+
+   <div class="col-lg-4">
+      <div class="row">
+
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <BR>
+            <BR>
+              <button class="btn btn-danger btn-lg btn-block" (click)="addCar()">ADD CAR</button><br><BR>              
+              <button class="btn btn-danger btn-lg btn-block" (click)="getCustomerId()">ADD BALANCE</button><br><br>
+              <button class="btn btn-danger btn-lg btn-block" >RECHARGE HISTORY</button><br> <BR>
+              <button class="btn btn-danger btn-lg btn-block" (click)="deleteAccount()">DELETE ACCOUNT</button><br> <BR>
+          </div>
+          <div class="col-lg-2"></div>
+      </div>    
+   </div>
+
+
+   <div class="col-lg-4">
+    <h2><b>YOUR PROFILE:</b></h2>
+        <div class="card border-secondary mb-3"> 
+            <div class="card-header"><b>WELCOME, {{customer.username}} </b></div>
+            <div class="card-body">
+                <p class="card-text">CUSTOMER ID: <font color="red"><b>{{customer.id}}</b></font></p>
+                <p class="card-text">NAME: <font color="red"><b>{{customer.name}}</b></font></p>
+                <p class="card-text">EMAIL: <font color="red"><b>{{customer.email}}</b></font></p>
+                <p class="card-text">CONTACT: <font color="red"><b>{{customer.contact}}</b></font>
+                </p>
+                <p class="card-text">BALANCE: <font color="red"><b>{{customer.balance}}</b></font></p>
+            </div>        
+        </div>  
+    </div>
+
+</div>
+</div>
 
 
